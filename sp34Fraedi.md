@@ -42,7 +42,7 @@ Regluleg segð fyrir URL
 Tekur inn vefslóð og skilar .csv skrá í hlaup.csv. Einnig er hægt að sjá hlaup.html sem er unnið úr.
 
 1. parse_individual_results function
-2. 
+
 Reglulegar segðir:
 
 names: re.findall(r'<td[^>]*class="name"[^>]*>(.*?)<\/td>', html)
