@@ -19,6 +19,20 @@ python3 sp2.py --file data/email.txt
 
 
 Spurning 3 í skjali regex_reorder.py
+Spurning 3 sp3.py er python skjal fyrir dæmi 3. Keyra skrá með:
+
+python3 code/regex_reorder.py --infile data/nafn_heimilisfang_simanumer.csv --outfile data/heimilisfang_simanumer_nafn.tsv
+
+tekur inn t.d.
+
+Jón Jónsson, Litla-Saurbæ, 816 Ölfusi, 555-1234 Guðrún Helgadóttir, Fiskislóð 15, 101 Reykjavík, 510-7000 Jón Oddur Guðmundsson, Úthlíð 6, 450 Patreksfirði, 897-1234
+
+og breytir í
+
+Litla-Saurbæ 816 Ölfusi 555-1234 Jónsson, Jón Fiskislóð 15 101 Reykjavík 510-7000 Helgadóttir, Guðrún Úthlíð 6 450 Patreksfirði 897-1234 Guðmundsson, Jón Oddur
+
+Þá býr hann til skjal í data möppunni þar sem búið er að endur raða. skipunin tekur inn skránna nafn_heimilisfang_simanumer.csv og skilar skránni heimilisfang_simanumer_nafn.tsv (í data möppu).
 
 
 Spurning 4 í timataka.py.
+
