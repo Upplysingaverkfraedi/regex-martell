@@ -3,7 +3,7 @@ Spurning 1 er kóðuð í skjali  regex_kt.py. Til að keyra þann kóða þarf 
 python regex_kt.py --file inntaksskra.txt --einstaklingar eða 
 python regex_kt.py --file inntaksskra.txt --fyrirtaeki 
 þ.e. ef þú vilt leita af einstaklings kennitölu eða fyrirtækja. Til að finna báðar í einu geriru python regex_kt.py --file inntaksskra.txt --einstaklingar --fyrirtaeki 
-Fræðilegi parturinn er unnin í skjali: lidur1ADALSKJALskilatessu.md þar sem segðin er hönnuð og útskýrð ítarlega. Textaskjalið inntaksskra.txt inniheldur eftirfarandi upplýsingar: 
+Fræðilegi parturinn er unnin í skjali: lidur1ADALSKJALskilatessu.md þar sem segðin er hönnuð og útskýrð ítarlega. Textaskjalið inntaksskra.txt eða kt.txt (sá eftir á) inniheldur eftirfarandi upplýsingar: 
 Kennitala Haskola Islands: 600169-2039
 Vigdis Finnbogadottur: 150430-2329 
 Guðni Th. Johannessonar: 260668-4719. 
