@@ -316,5 +316,63 @@ Aðeins flóknara fyrir hitt.
 
 Tekur inn vefslóð og skilar .csv skrá í hlaup.csv. Einnig er hægt að sjá hlaup.html sem er unnið úr.
 
+
+Reglulegar segðir:
+
+names: re.findall(r'<td[^>]class="name"[^>]>(.*?)</td>', html) Leitar að öllum reitum þar sem class="name", og dregur út innihald þeirra (nafnið á keppandanum).
+
+years: re.findall(r'<td[^>]class="year"[^>]>(.*?)</td>', html) Leitar að reitum með class="year", dregur út árið.
+
+clubs: re.findall(r'<td[^>]class="club"[^>]>(.*?)</td>', html) Leitar að reitum með class="club", dregur út klúbbinn.
+
+times: re.findall(r'<td[^>]class="time"[^>]>(.*?)</td>', html) Leitar að reitum með class="time", dregur út tímatöku keppandans.
+
+behind: re.findall(r'<td[^>]class="behind"[^>]>(.*?)</td>', html) Leitar að reitum með class="behind", dregur út hversu langt keppandinn er á eftir efsta manni.
+
+Í þessari aðferð eru reglulegar segðir notaðar til að finna og sækja gögn úr hverjum reit sem tilheyrir tilteknum þáttum eins og nafni, ári, klúbbi o.s.frv. Gögnin eru síðan sett saman í lista af orðabókum þar sem hvert stak inniheldur upplýsingar um einn keppanda.
+
+Reglulegar segðir:
+
+teams: re.findall(r'<td[^>]class="team"[^>]>(.*?)</td>', html) Leitar að liðunum með class="team".
+
+members: re.findall(r'<td[^>]class="members"[^>]>(.*?)</td>', html, re.DOTALL) Leitar að meðlimum liðsins með class="members". Notkun re.DOTALL tryggir að regluleg segð geti lesið fleiri línur (þar sem meðlimir geta verið á mörgum línum).
+
+splits: re.findall(r'<td[^>]class="split"[^>]>(.*?)</td>', html, re.DOTALL) Leitar að "splits", sem gæti verið millitímar eða svipaðar upplýsingar.
+
+times: re.findall(r'<td[^>]class="time"[^>]>(.*?)</td>', html) Leitar að tímatöku liðsins.
+
+Hér er ferlið svipað og í einstaklingskeppninni nema að nú er verið að sækja gögn um lið, meðlimi þeirra, og millitíma.
+
+Reglulegar segðir:
+
+names: re.findall(r'<td[^>]class="name"[^>]>(.*?)</td>', html) Leitar að keppandanöfnum.
+
+ages: re.findall(r'<td[^>]class="age"[^>]>(.*?)</td>', html) Leitar að aldri keppenda með class="age".
+
+final_times: re.findall(r'<td[^>]class="final"[^>]>(.*?)</td>', html) Leitar að lokatímum keppenda.
+
+paces: re.findall(r'<td[^>]class="pace"[^>]>(.*?)</td>', html) Leitar að hraða keppenda.
+
+Þessi aðferð notar reglulegar segðir til að finna hraða og aldur keppenda ásamt lokatímum þeirra.
+
+Þessi aðferð ákvarðar hvernig á að vinna úr HTML gögnunum byggt á því hvaða tegund niðurstaðna er til staðar. Hún kallar síðan á rétta parsinga-aðferð (parse_individual_results, parse_team_results eða parse_pace_results).
+
+Áhersla á reglulegar segðir:
+
+<td[^>]class="something"[^>]>(.*?)</td>:
+
+Þessi mynstri sækja allar töflur þar sem ákveðin class gildi eru til staðar, til dæmis class="name", class="year" o.s.frv.
+
+[^>]*:
+
+Þetta hluti segir segðinni að leyfa hvaða aukaeiginleika sem er innan merkisins.
+
+(.*?):
+
+Þetta táknar lágmarksgreedy (non-greedy) leitarviðfang til að fá innihaldið milli byrjun- og endamerkja.
+
+
+
+
 # KÓÐI FYRIR SPURNINGU 4:
 Sjá kóða í code/timataka.py
