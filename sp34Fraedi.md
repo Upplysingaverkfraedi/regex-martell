@@ -42,7 +42,9 @@ Regluleg segð fyrir URL
 Tekur inn vefslóð og skilar .csv skrá í hlaup.csv. Einnig er hægt að sjá hlaup.html sem er unnið úr.
 
 1. parse_individual_results function
+2. 
 Reglulegar segðir:
+
 names: re.findall(r'<td[^>]*class="name"[^>]*>(.*?)<\/td>', html)
 Leitar að öllum <td> reitum þar sem class="name", og dregur út innihald þeirra (nafnið á keppandanum).
 years: re.findall(r'<td[^>]*class="year"[^>]*>(.*?)<\/td>', html)
@@ -53,10 +55,13 @@ times: re.findall(r'<td[^>]*class="time"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="time", dregur út tímatöku keppandans.
 behind: re.findall(r'<td[^>]*class="behind"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="behind", dregur út hversu langt keppandinn er á eftir efsta manni.
+
 Í þessari aðferð eru reglulegar segðir notaðar til að finna og sækja gögn úr hverjum reit sem tilheyrir tilteknum þáttum eins og nafni, ári, klúbbi o.s.frv. Gögnin eru síðan sett saman í lista af orðabókum þar sem hvert stak inniheldur upplýsingar um einn keppanda.
 
-2. parse_team_results function
+4. parse_team_results function
+
 Reglulegar segðir:
+
 teams: re.findall(r'<td[^>]*class="team"[^>]*>(.*?)<\/td>', html)
 Leitar að liðunum með class="team".
 members: re.findall(r'<td[^>]*class="members"[^>]*>(.*?)<\/td>', html, re.DOTALL)
@@ -65,10 +70,13 @@ splits: re.findall(r'<td[^>]*class="split"[^>]*>(.*?)<\/td>', html, re.DOTALL)
 Leitar að "splits", sem gæti verið millitímar eða svipaðar upplýsingar.
 times: re.findall(r'<td[^>]*class="time"[^>]*>(.*?)<\/td>', html)
 Leitar að tímatöku liðsins.
+
 Hér er ferlið svipað og í einstaklingskeppninni nema að nú er verið að sækja gögn um lið, meðlimi þeirra, og millitíma.
 
-3. parse_pace_results function
+6. parse_pace_results function
+   
 Reglulegar segðir:
+
 names: re.findall(r'<td[^>]*class="name"[^>]*>(.*?)<\/td>', html)
 Leitar að keppandanöfnum.
 ages: re.findall(r'<td[^>]*class="age"[^>]*>(.*?)<\/td>', html)
@@ -77,12 +85,24 @@ final_times: re.findall(r'<td[^>]*class="final"[^>]*>(.*?)<\/td>', html)
 Leitar að lokatímum keppenda.
 paces: re.findall(r'<td[^>]*class="pace"[^>]*>(.*?)<\/td>', html)
 Leitar að hraða keppenda.
+
 Þessi aðferð notar reglulegar segðir til að finna hraða og aldur keppenda ásamt lokatímum þeirra.
 
-4. parse_html function
+8. parse_html function
+   
 Þessi aðferð ákvarðar hvernig á að vinna úr HTML gögnunum byggt á því hvaða tegund niðurstaðna er til staðar. Hún kallar síðan á rétta parsinga-aðferð (parse_individual_results, parse_team_results eða parse_pace_results).
+
 Áhersla á reglulegar segðir:
-<td[^>]*class="something"[^>]*>(.*?)<\/td>: Þessi mynstrin sækja allar <td> töflu frumur þar sem ákveðin class gildi eru til staðar, til dæmis class="name", class="year" o.s.frv.
-[^>]*: Þetta hluti segir segðinni að leyfa hvaða aukaeiginleika sem er innan <td> merkisins.
-(.*?): Þetta táknar lágmarksgreedy (non-greedy) leitarviðfang til að fá innihaldið milli byrjun- og endamerkja frumunnar, þ.e. milli <td> og </td>.
+
+<td[^>]*class="something"[^>]*>(.*?)<\/td>: 
+
+Þessi mynstrin sækja allar <td> töflu frumur þar sem ákveðin class gildi eru til staðar, til dæmis class="name", class="year" o.s.frv.
+
+[^>]*: 
+
+Þetta hluti segir segðinni að leyfa hvaða aukaeiginleika sem er innan <td> merkisins.
+
+(.*?):
+
+Þetta táknar lágmarksgreedy (non-greedy) leitarviðfang til að fá innihaldið milli byrjun- og endamerkja frumunnar, þ.e. milli <td> og </td>.
 Þannig eru reglulegar segðir notaðar til að einfalda greiningu HTML gagna, og leita að upplýsingum innan ákveðinna reita.
