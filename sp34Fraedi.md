@@ -47,12 +47,16 @@ Reglulegar segðir:
 
 names: re.findall(r'<td[^>]*class="name"[^>]*>(.*?)<\/td>', html)
 Leitar að öllum <td> reitum þar sem class="name", og dregur út innihald þeirra (nafnið á keppandanum).
+
 years: re.findall(r'<td[^>]*class="year"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="year", dregur út árið.
+
 clubs: re.findall(r'<td[^>]*class="club"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="club", dregur út klúbbinn.
+
 times: re.findall(r'<td[^>]*class="time"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="time", dregur út tímatöku keppandans.
+
 behind: re.findall(r'<td[^>]*class="behind"[^>]*>(.*?)<\/td>', html)
 Leitar að reitum með class="behind", dregur út hversu langt keppandinn er á eftir efsta manni.
 
@@ -64,10 +68,13 @@ Reglulegar segðir:
 
 teams: re.findall(r'<td[^>]*class="team"[^>]*>(.*?)<\/td>', html)
 Leitar að liðunum með class="team".
+
 members: re.findall(r'<td[^>]*class="members"[^>]*>(.*?)<\/td>', html, re.DOTALL)
 Leitar að meðlimum liðsins með class="members". Notkun re.DOTALL tryggir að regluleg segð geti lesið fleiri línur (þar sem meðlimir geta verið á mörgum línum).
+
 splits: re.findall(r'<td[^>]*class="split"[^>]*>(.*?)<\/td>', html, re.DOTALL)
 Leitar að "splits", sem gæti verið millitímar eða svipaðar upplýsingar.
+
 times: re.findall(r'<td[^>]*class="time"[^>]*>(.*?)<\/td>', html)
 Leitar að tímatöku liðsins.
 
@@ -79,10 +86,13 @@ Reglulegar segðir:
 
 names: re.findall(r'<td[^>]*class="name"[^>]*>(.*?)<\/td>', html)
 Leitar að keppandanöfnum.
+
 ages: re.findall(r'<td[^>]*class="age"[^>]*>(.*?)<\/td>', html)
 Leitar að aldri keppenda með class="age".
+
 final_times: re.findall(r'<td[^>]*class="final"[^>]*>(.*?)<\/td>', html)
 Leitar að lokatímum keppenda.
+
 paces: re.findall(r'<td[^>]*class="pace"[^>]*>(.*?)<\/td>', html)
 Leitar að hraða keppenda.
 
@@ -105,4 +115,5 @@ Leitar að hraða keppenda.
 (.*?):
 
 Þetta táknar lágmarksgreedy (non-greedy) leitarviðfang til að fá innihaldið milli byrjun- og endamerkja frumunnar, þ.e. milli <td> og </td>.
+
 Þannig eru reglulegar segðir notaðar til að einfalda greiningu HTML gagna, og leita að upplýsingum innan ákveðinna reita.
