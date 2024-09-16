@@ -13,6 +13,9 @@ Ekki logleg kennitala: 151617-1819.
 
 
 Spurning 2 í skjali regex_email.py.
+Mögulega þarf að nota þennan koda til að runa file fyrir sp2
+
+python3 sp2.py --file data/email.txt
 
 
 Spurning 3 í skjali regex_reorder.py
